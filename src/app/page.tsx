@@ -4,12 +4,12 @@ import { ThemeToggle } from "./components/theme-toggle";
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from "@tabler/icons-react";
 
 const photos = [
-  { src: "/photos/1.jpg", alt: "John O’Donovan headshot" },
-  { src: "/photos/2.jpg", alt: "John with family outdoors" },
-  { src: "/photos/3.jpg", alt: "John on Mount Misen" },
+  { src: "/photos/1.JPG", alt: "John O’Donovan headshot" },
+  { src: "/photos/2.JPG", alt: "John with family outdoors" },
+  { src: "/photos/3.JPG", alt: "John on Mount Misen" },
   { src: "/photos/6.jpeg", alt: "John in Ravello" },
   { src: "/photos/5.jpeg", alt: "John in Nara" },
-  { src: "/photos/7.jpg", alt: "Baby Ori" },
+  { src: "/photos/7.JPG", alt: "Baby Ori" },
 ];
 
 const experience = [
