@@ -17,7 +17,7 @@ const experience = [
     org: "Optum Health (UHG)",
     title: "Senior Data Analyst",
     dates: "Aug 2022 — Present",
-    desc: "Authored 100+ clinical identification and stratification algorithms. Separately own the full eVisor clinical rule catalog (~2,800 rules) as intake point for change requests, facilitating recurring rule summits with product medical directors against guideline and HEDIS changes. Promoted an LLM agent through dev, stage, and prod in a regulated environment.",
+    desc: "Authored 100+ clinical identification and stratification algorithms. Separately accountable for the full eVisor clinical rule catalog (~2,800 rules) as intake point for change requests, facilitating recurring clinical rule summits with product medical directors against guideline and HEDIS changes. Promoted an LLM agent through dev, stage, and prod in a regulated environment.",
   },
   {
     org: "Optum Infusion",
@@ -34,14 +34,35 @@ const experience = [
 ];
 
 const skills = [
-  ["Python", "SQL (Snowflake)", "SAS Enterprise Guide", "Excel"],
-  [
-    "Clinical identification & stratification logic",
-    "Rules-engine design",
-    "HEDIS specifications",
-  ],
-  ["Microsoft Copilot Studio", "Power Automate", "SharePoint Online", "Power BI"],
-  ["EHR data flows", "HL7/FHIR fundamentals", "HIPAA & privacy controls"],
+  {
+    label: "Languages & Data",
+    items: ["Python", "SQL (Snowflake)", "SAS Enterprise Guide", "Excel"],
+  },
+  {
+    label: "Decision Support & Analytics",
+    items: [
+      "Clinical identification & stratification logic",
+      "Rules-engine design",
+      "HEDIS specifications",
+    ],
+  },
+  {
+    label: "AI & Automation",
+    items: [
+      "Microsoft Copilot Studio",
+      "Power Automate",
+      "SharePoint Online",
+      "Power BI",
+    ],
+  },
+  {
+    label: "Healthcare Data",
+    items: [
+      "EHR data flows",
+      "HL7/FHIR fundamentals",
+      "HIPAA & privacy controls",
+    ],
+  },
 ];
 
 const certifications: {
@@ -86,8 +107,8 @@ export default function Home() {
         </h1>
 
         <p className="text-base leading-7 text-neutral-600 dark:text-neutral-300">
-          Clinical informatics pharmacist & data analyst building safe, scalable
-          AI-enabled decision support for medication and population health.
+          Pharmacist and data analyst building safe, scalable AI-enabled decision
+          support for medication and population health.
         </p>
 
         {/* Icon row */}
@@ -184,19 +205,24 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Grouped tags */}
-          <div className="mt-6 space-y-3">
+          {/* Labeled tag groups */}
+          <div className="mt-6 space-y-5">
             {skills.map((group) => (
-              <ul key={group[0]} className="flex flex-wrap gap-2">
-                {group.map((s) => (
-                  <li
-                    key={s}
-                    className="rounded-full bg-neutral-100 px-3 py-1 text-xs text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
-                  >
-                    {s}
-                  </li>
-                ))}
-              </ul>
+              <div key={group.label} className="space-y-2">
+                <p className="text-xs font-medium tracking-wide text-neutral-500 dark:text-neutral-400">
+                  {group.label}
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  {group.items.map((s) => (
+                    <li
+                      key={s}
+                      className="rounded-full bg-neutral-100 px-3 py-1 text-xs text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
@@ -216,10 +242,10 @@ export default function Home() {
           </div>
 
           {/* Credential list */}
-          <ul className="mt-6 space-y-4">
+          <ul className="mt-6 space-y-6">
             {certifications.map((c) => (
               <li key={c.issuer} className="space-y-1">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
                   <p className="font-medium text-neutral-900 dark:text-neutral-50">
                     {c.issuer}
                   </p>
