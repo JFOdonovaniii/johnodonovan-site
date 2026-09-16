@@ -15,9 +15,9 @@ const photos = [
 const experience = [
   {
     org: "Optum Health (UHG)",
-    title: "Clinical Informatics Pharmacist",
+    title: "Senior Data Analyst",
     dates: "Aug 2022 — Present",
-    desc: "Lead health-tech implementations for eVisor, combining Python, SAS, and SQL in Snowflake to refine clinical algorithms, data pipelines, and outreach campaigns. Built Copilot Studio agents and Power Automate tooling to answer rule-logic questions from authoritative datasets and standardize Aha! feature intake.",
+    desc: "Authored 100+ clinical identification and stratification algorithms. Separately own the full eVisor clinical rule catalog (~2,800 rules) as intake point for change requests, facilitating recurring rule summits with product medical directors against guideline and HEDIS changes. Promoted an LLM agent through dev, stage, and prod in a regulated environment.",
   },
   {
     org: "Optum Infusion",
@@ -30,6 +30,43 @@ const experience = [
     title: "Associate Clinical Pharmacy Manager",
     dates: "Jun 2019 — Feb 2020",
     desc: "Oversaw operations for multiple specialty infusion pharmacies, including inventory management, compliance tracking, and patient charting. Bridged clinical requirements and operational workflows while supporting direct patient infusion care.",
+  },
+];
+
+const skills = [
+  ["Python", "SQL (Snowflake)", "SAS Enterprise Guide", "Excel"],
+  [
+    "Clinical identification & stratification logic",
+    "Rules-engine design",
+    "HEDIS specifications",
+  ],
+  ["Microsoft Copilot Studio", "Power Automate", "SharePoint Online", "Power BI"],
+  ["EHR data flows", "HL7/FHIR fundamentals", "HIPAA & privacy controls"],
+];
+
+const certifications: {
+  issuer: string;
+  items: string[];
+  href?: string;
+  hrefLabel?: string;
+}[] = [
+  {
+    issuer: "Microsoft Certified",
+    items: [
+      "Azure AI Engineer Associate",
+      "Azure Data Scientist Associate",
+      "Azure Fundamentals",
+    ],
+    href: "https://www.credly.com/users/john-odonovan.eb2c89b4",
+    hrefLabel: "Credly",
+  },
+  {
+    issuer: "Harvard/edX",
+    items: ["CS50x", "CS50 AI"],
+  },
+  {
+    issuer: "CITI",
+    items: ["Biomedical Research (Basic)", "GCP for Clinical Trials"],
   },
 ];
 
@@ -131,6 +168,78 @@ export default function Home() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* Skills card */}
+      <section>
+        <div className="rounded-3xl border border-neutral-200/80 bg-white/90 p-6 shadow-sm ring-1 ring-black/5 dark:border-neutral-800/80 dark:bg-neutral-900/80 dark:ring-white/5">
+          {/* Card header */}
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-300">
+              <span className="text-lg">🧰</span>
+            </div>
+            <h2 className="text-sm font-semibold tracking-wide text-neutral-900 dark:text-neutral-50">
+              Skills
+            </h2>
+          </div>
+
+          {/* Grouped tags */}
+          <div className="mt-6 space-y-3">
+            {skills.map((group) => (
+              <ul key={group[0]} className="flex flex-wrap gap-2">
+                {group.map((s) => (
+                  <li
+                    key={s}
+                    className="rounded-full bg-neutral-100 px-3 py-1 text-xs text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications card */}
+      <section>
+        <div className="rounded-3xl border border-neutral-200/80 bg-white/90 p-6 shadow-sm ring-1 ring-black/5 dark:border-neutral-800/80 dark:bg-neutral-900/80 dark:ring-white/5">
+          {/* Card header */}
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-300">
+              <span className="text-lg">📜</span>
+            </div>
+            <h2 className="text-sm font-semibold tracking-wide text-neutral-900 dark:text-neutral-50">
+              Certifications
+            </h2>
+          </div>
+
+          {/* Credential list */}
+          <ul className="mt-6 space-y-4">
+            {certifications.map((c) => (
+              <li key={c.issuer} className="space-y-1">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <p className="font-medium text-neutral-900 dark:text-neutral-50">
+                    {c.issuer}
+                  </p>
+                  {c.href && (
+                    <a
+                      href={c.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs text-neutral-500 underline underline-offset-2 transition-colors hover:text-[#C06EFF] dark:text-neutral-400 dark:hover:text-[#C06EFF]"
+                    >
+                      {c.hrefLabel}
+                    </a>
+                  )}
+                </div>
+                <p className="text-sm leading-6 text-neutral-600 dark:text-neutral-300">
+                  {c.items.join(" · ")}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>
